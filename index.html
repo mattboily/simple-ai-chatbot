@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple AI Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #eef2f7;
+            color: #333;
+        }
+        .chat-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #4a69bd;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #3c5aa6;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            max-height: 400px; /* Limit height for scroll */
+            overflow-y: auto;
+            background-color: #f9fbfd;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        .message.user {
+            justify-content: flex-end;
+        }
+        .message.ai {
+            justify-content: flex-start;
+        }
+        .message-bubble {
+            max-width: 75%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+        .message.user .message-bubble {
+            background-color: #e0f2f7;
+            color: #333;
+            border-bottom-right-radius: 3px;
+        }
+        .message.ai .message-bubble {
+            background-color: #d1e7dd;
+            color: #333;
+            border-bottom-left-radius: 3px;
+        }
+        .chat-input-area {
+            display: flex;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #eef2f7;
+        }
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 25px;
+            margin-right: 10px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .chat-input-area input:focus {
+            border-color: #4a69bd;
+        }
+        .chat-input-area button {
+            background-color: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        .chat-input-area button:hover {
+            background-color: #3c5aa6;
+        }
+        .chat-input-area button:disabled {
+            background-color: #aeb8c4;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Simple AI Chatbot
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Chat messages will appear here -->
+            <div class="message ai">
+                <div class="message-bubble">Hello! How can I help you today?</div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
